@@ -27,7 +27,7 @@ jobs:
       - uses: pulumi/actions@v5
         with:
           command: up
-          stack-name: JialeDu/lab8/dev
+          stack-name: JialeDu-org/lab8-static-website-aws-yaml/dev
           work-dir: ./ppinfra
 
         env:
