@@ -1,9 +1,8 @@
 name: lab8-static-website-aws-yaml
-description: COSC1209 Lab 8 – S3 + CloudFront Static Website
+description: A TypeScript program to deploy a static website on AWS
 runtime:
   name: nodejs
-options:
-  packagemanager: npm
+
 config:
   pulumi:tags:
     value:
