@@ -1,4 +1,4 @@
-name: lab8
+name: lab8-static-website-aws-yaml
 description: COSC1209 Lab 8 – S3 + CloudFront Static Website
 runtime:
   name: nodejs
