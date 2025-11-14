@@ -6,21 +6,18 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   pulumi-up:
-    name: pulumi-up
     runs-on: ubuntu-latest
 
-    permissions:
-      id-token: write
-      contents: read
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js 18
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -34,15 +31,8 @@ jobs:
           role-to-assume: arn:aws:iam::434749277268:role/GitHubActions-1209-lab8-OIDC
           aws-region: ca-central-1
 
-      - name: Pulumi Up
-        uses: pulumi/actions@v5
+      - uses: pulumi/actions@v5
         with:
           command: up
           stack-name: JialeDu-org/lab8-static-website-aws-yaml/dev
           work-dir: ./ppinfra
-        env:
-          PULUMI_ACCESS_TOKEN: ""
-          PULUMI_BACKEND_URL: https://api.pulumi.com
-          PULUMI_CI: "GitHub-Actions"
-
-
