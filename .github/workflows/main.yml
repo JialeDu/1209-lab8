@@ -28,7 +28,6 @@ jobs:
         working-directory: ./ppinfra
         run: npm install
 
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -41,10 +40,9 @@ jobs:
           command: up
           stack-name: JialeDu-org/lab8-static-website-aws-yaml/dev
           work-dir: ./ppinfra
-
         env:
           PULUMI_ACCESS_TOKEN: ""
           PULUMI_BACKEND_URL: https://api.pulumi.com
-
+          PULUMI_CI: "GitHub-Actions"
 
 
