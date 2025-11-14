@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      id-token: write        # 必须：启用 OIDC token
+      id-token: write
       contents: read
 
     steps:
@@ -29,7 +29,7 @@ jobs:
         run: npm install
 
 
-      - name: Configure AWS credentials from GitHub OIDC
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::434749277268:role/GitHubActions-1209-lab8-OIDC
@@ -41,6 +41,10 @@ jobs:
           command: up
           stack-name: JialeDu-org/lab8-static-website-aws-yaml/dev
           work-dir: ./ppinfra
+
+        env:
+          PULUMI_ACCESS_TOKEN: ""
+          PULUMI_BACKEND_URL: https://api.pulumi.com
 
 
 
